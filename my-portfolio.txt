@@ -1,1 +1,2334 @@
-index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ebuka Ezeh | Omo Usen MJ – Psychologist · Researcher · Builder</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Chukwuebuka Ezeh (Omo Usen MJ) – Nigerian psychologist, researcher, and builder. Founder of CareWise MH Hub and AcademicHelp.co. Explore his work at the intersection of psychology, AI, and African wellbeing." />
+    <meta name="keywords" content="Ebuka Ezeh, Omo Usen MJ, psychologist, researcher, mental health, AI, CareWise, AcademicHelp, Nigeria, University of Ibadan, health psychology" />
+    <meta property="og:title" content="Ebuka Ezeh | Omo Usen MJ – Psychologist · Researcher · Builder" />
+    <meta property="og:description" content="Building evidence-based systems at the intersection of psychology, technology, and human wellbeing across Africa." />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#0a0a0a" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+    <style>
+        /* ===== RESET & BASE ===== */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --black: #0a0a0a;
+            --charcoal: #1a1a1a;
+            --dark-charcoal: #121212;
+            --ivory: #f5f0e8;
+            --warm-ivory: #ede8de;
+            --gold: #c9a84c;
+            --gold-light: #e4c86a;
+            --gold-dark: #a8893a;
+            --bronze: #8a7a5a;
+            --dark-brown: #2c1810;
+            --warm-white: #e8e0d0;
+            --text-light: #f0ebe0;
+            --text-muted: #b0a898;
+            --font-display: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+            --transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            --shadow-card: 0 20px 60px rgba(0, 0, 0, 0.6);
+            --radius: 12px;
+        }
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        body {
+            background: var(--black);
+            color: var(--warm-white);
+            font-family: var(--font-body);
+            font-weight: 300;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        a {
+            color: var(--gold);
+            text-decoration: none;
+            transition: color var(--transition);
+        }
+        a:hover {
+            color: var(--gold-light);
+        }
+        img {
+            max-width: 100%;
+            display: block;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .section-padding {
+            padding: 100px 0;
+        }
+        @media (max-width: 768px) {
+            .section-padding {
+                padding: 70px 0;
+            }
+            .container {
+                padding: 0 16px;
+            }
+        }
+
+        /* ===== SCROLLBAR ===== */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--charcoal);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--gold-dark);
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--gold);
+        }
+
+        /* ===== SELECTION ===== */
+        ::selection {
+            background: var(--gold);
+            color: var(--black);
+        }
+
+        /* ===== GRAIN OVERLAY ===== */
+        #grain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.035;
+            mix-blend-mode: overlay;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 256px 256px;
+        }
+
+        /* ===== NAVIGATION ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 18px 0;
+            transition: background var(--transition), backdrop-filter var(--transition), box-shadow var(--transition);
+            background: transparent;
+        }
+        .navbar.scrolled {
+            background: rgba(10, 10, 10, 0.88);
+            backdrop-filter: blur(16px) saturate(1.2);
+            box-shadow: 0 4px 40px rgba(0, 0, 0, 0.5);
+            border-bottom: 1px solid rgba(201, 168, 76, 0.08);
+        }
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-logo {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--warm-white);
+            letter-spacing: 1px;
+            transition: color var(--transition);
+        }
+        .nav-logo span {
+            color: var(--gold);
+        }
+        .nav-logo:hover {
+            color: var(--gold-light);
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+        .nav-links a {
+            font-size: 0.78rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            transition: color var(--transition);
+            position: relative;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1.5px;
+            background: var(--gold);
+            transition: width var(--transition);
+        }
+        .nav-links a:hover {
+            color: var(--warm-white);
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        .nav-links a.active {
+            color: var(--gold);
+        }
+        .nav-links a.active::after {
+            width: 100%;
+        }
+        .nav-hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 4px;
+            background: none;
+            border: none;
+        }
+        .nav-hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--warm-white);
+            transition: var(--transition);
+            border-radius: 2px;
+        }
+        .nav-hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .nav-hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .nav-hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* progress indicator */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-light));
+            z-index: 1001;
+            width: 0%;
+            transition: width 0.1s linear;
+            box-shadow: 0 0 20px rgba(201, 168, 76, 0.3);
+        }
+
+        @media (max-width: 992px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 280px;
+                height: 100vh;
+                background: rgba(10, 10, 10, 0.96);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                justify-content: center;
+                padding: 40px;
+                gap: 24px;
+                transition: right 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+                border-left: 1px solid rgba(201, 168, 76, 0.1);
+            }
+            .nav-links.open {
+                right: 0;
+            }
+            .nav-links a {
+                font-size: 1rem;
+            }
+            .nav-hamburger {
+                display: flex;
+            }
+        }
+
+        /* ===== HERO ===== */
+        #hero {
+            position: relative;
+            height: 100vh;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: var(--black);
+        }
+        #hero-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+        .hero-ambient {
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(ellipse at 30% 40%, rgba(201, 168, 76, 0.06) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 60%, rgba(201, 168, 76, 0.04) 0%, transparent 50%);
+            z-index: 2;
+            animation: ambientMove 20s ease-in-out infinite alternate;
+        }
+        @keyframes ambientMove {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+            100% {
+                transform: translate(2%, 3%) scale(1.05);
+            }
+        }
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            width: 100%;
+            padding: 40px 0;
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .hero-text h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.8rem, 7vw, 5.2rem);
+            font-weight: 700;
+            line-height: 1.08;
+            letter-spacing: -0.02em;
+            color: var(--warm-white);
+            margin-bottom: 12px;
+        }
+        .hero-text h1 .gold {
+            color: var(--gold);
+        }
+        .hero-text .subhead {
+            font-size: clamp(1rem, 1.6vw, 1.4rem);
+            font-weight: 400;
+            color: var(--gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            opacity: 0.8;
+        }
+        .hero-text .tagline {
+            font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+            color: var(--text-muted);
+            max-width: 480px;
+            margin-bottom: 32px;
+            line-height: 1.8;
+        }
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            align-items: center;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 34px;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all var(--transition);
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+        }
+        .btn-primary {
+            background: var(--gold);
+            color: var(--black);
+        }
+        .btn-primary:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(201, 168, 76, 0.25);
+        }
+        .btn-secondary {
+            background: transparent;
+            color: var(--warm-white);
+            border: 1px solid rgba(201, 168, 76, 0.35);
+        }
+        .btn-secondary:hover {
+            border-color: var(--gold);
+            background: rgba(201, 168, 76, 0.06);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(201, 168, 76, 0.08);
+        }
+        .btn-text {
+            background: none;
+            color: var(--text-muted);
+            padding: 10px 20px;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+            border-bottom: 1px solid transparent;
+            border-radius: 0;
+            text-transform: none;
+        }
+        .btn-text:hover {
+            color: var(--gold);
+            border-bottom-color: var(--gold);
+            transform: none;
+            box-shadow: none;
+        }
+        .hero-portrait {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .hero-portrait-inner {
+            width: 100%;
+            max-width: 400px;
+            aspect-ratio: 1 / 1.2;
+            border-radius: 8px;
+            background: linear-gradient(145deg, var(--charcoal), var(--dark-charcoal));
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(201, 168, 76, 0.08);
+        }
+        .hero-portrait-inner .portrait-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            background: radial-gradient(ellipse at 30% 20%, rgba(201, 168, 76, 0.04), transparent 70%);
+            position: relative;
+        }
+        .hero-portrait-inner .portrait-placeholder .initials {
+            font-size: 5rem;
+            line-height: 1;
+            color: rgba(201, 168, 76, 0.15);
+            font-weight: 700;
+            letter-spacing: 4px;
+        }
+        .hero-portrait-inner .portrait-placeholder .sub {
+            font-size: 0.6rem;
+            letter-spacing: 3px;
+            margin-top: 8px;
+            color: rgba(201, 168, 76, 0.08);
+            text-transform: uppercase;
+            text-align: center;
+        }
+        .hero-portrait-inner .portrait-glow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at 40% 30%, rgba(201, 168, 76, 0.06), transparent 60%);
+            pointer-events: none;
+        }
+        .hero-portrait-inner .portrait-border {
+            position: absolute;
+            inset: 0;
+            border: 1px solid rgba(201, 168, 76, 0.06);
+            border-radius: 8px;
+            pointer-events: none;
+        }
+        .hero-portrait-inner .portrait-ring {
+            position: absolute;
+            inset: 12px;
+            border: 1px solid rgba(201, 168, 76, 0.04);
+            border-radius: 4px;
+            pointer-events: none;
+        }
+
+        @media (max-width: 992px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+            .hero-text .tagline {
+                max-width: 100%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+            .hero-portrait-inner {
+                max-width: 280px;
+                margin: 0 auto;
+            }
+        }
+        @media (max-width: 480px) {
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+            .hero-buttons .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* ===== SECTION TITLES ===== */
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 8px;
+            opacity: 0.7;
+        }
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.2rem, 4vw, 3.4rem);
+            font-weight: 700;
+            color: var(--warm-white);
+            line-height: 1.15;
+            margin-bottom: 16px;
+        }
+        .section-title .gold {
+            color: var(--gold);
+        }
+        .section-desc {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            max-width: 640px;
+            line-height: 1.8;
+        }
+
+        /* ===== ABOUT ===== */
+        #about {
+            background: var(--dark-charcoal);
+            border-top: 1px solid rgba(201, 168, 76, 0.05);
+            border-bottom: 1px solid rgba(201, 168, 76, 0.05);
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+        .about-text p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-size: 1.02rem;
+            line-height: 1.9;
+        }
+        .about-text p strong {
+            color: var(--warm-white);
+            font-weight: 500;
+        }
+        .about-quote {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: var(--gold);
+            line-height: 1.4;
+            margin: 28px 0 12px;
+            padding-left: 24px;
+            border-left: 3px solid var(--gold);
+            font-style: italic;
+        }
+        .about-stat {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        .about-stat-item {
+            flex: 1;
+            min-width: 120px;
+        }
+        .about-stat-item .number {
+            font-family: var(--font-display);
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--gold);
+            display: block;
+        }
+        .about-stat-item .label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .about-quote {
+                font-size: 1.3rem;
+                padding-left: 16px;
+            }
+            .about-stat {
+                gap: 16px;
+            }
+        }
+
+        /* ===== TIMELINE ===== */
+        #journey {
+            background: var(--black);
+        }
+        .timeline {
+            position: relative;
+            padding: 40px 0 20px;
+        }
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: rgba(201, 168, 76, 0.15);
+            transform: translateX(-50%);
+        }
+        .timeline-line .fill {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0%;
+            background: linear-gradient(180deg, var(--gold), var(--gold-dark));
+            transition: height 1s ease;
+        }
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+        }
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        .timeline-item .content {
+            width: 42%;
+            padding: 24px 32px;
+            background: rgba(26, 26, 26, 0.6);
+            border-radius: var(--radius);
+            border: 1px solid rgba(201, 168, 76, 0.06);
+            backdrop-filter: blur(4px);
+            transition: all var(--transition);
+            cursor: default;
+            position: relative;
+        }
+        .timeline-item .content:hover {
+            border-color: rgba(201, 168, 76, 0.2);
+            background: rgba(26, 26, 26, 0.8);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+        }
+        .timeline-item .content .year {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 4px;
+        }
+        .timeline-item .content h4 {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--warm-white);
+            margin-bottom: 4px;
+        }
+        .timeline-item .content p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+        .timeline-item .content .desc-hidden {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, opacity 0.4s ease, margin 0.4s ease;
+            opacity: 0;
+            margin-top: 0;
+        }
+        .timeline-item .content:hover .desc-hidden {
+            max-height: 200px;
+            opacity: 1;
+            margin-top: 12px;
+        }
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--gold);
+            border: 3px solid var(--black);
+            box-shadow: 0 0 0 4px rgba(201, 168, 76, 0.15), 0 0 30px rgba(201, 168, 76, 0.05);
+            z-index: 2;
+            transition: all var(--transition);
+        }
+        .timeline-item .content:hover~.timeline-dot {
+            transform: translateX(-50%) scale(1.3);
+            box-shadow: 0 0 0 8px rgba(201, 168, 76, 0.2), 0 0 60px rgba(201, 168, 76, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .timeline-line {
+                left: 20px;
+            }
+            .timeline-item {
+                flex-direction: column !important;
+                align-items: flex-start;
+                padding-left: 48px;
+                margin-bottom: 30px;
+            }
+            .timeline-item .content {
+                width: 100%;
+                padding: 18px 20px;
+            }
+            .timeline-dot {
+                left: 20px;
+                transform: translateX(-50%);
+                width: 12px;
+                height: 12px;
+            }
+            .timeline-item .content:hover~.timeline-dot {
+                transform: translateX(-50%) scale(1.2);
+            }
+        }
+
+        /* ===== PROJECT SECTIONS ===== */
+        .project-section {
+            background: var(--dark-charcoal);
+            border-bottom: 1px solid rgba(201, 168, 76, 0.05);
+        }
+        .project-section:nth-child(even) {
+            background: var(--black);
+        }
+        .project-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .project-grid.reverse {
+            direction: rtl;
+        }
+        .project-grid.reverse>* {
+            direction: ltr;
+        }
+        .project-info .project-badge {
+            display: inline-block;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            border: 1px solid rgba(201, 168, 76, 0.2);
+            padding: 4px 14px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+        }
+        .project-info h3 {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 3vw, 2.6rem);
+            font-weight: 700;
+            color: var(--warm-white);
+            margin-bottom: 4px;
+        }
+        .project-info .project-sub {
+            font-size: 1rem;
+            color: var(--gold);
+            font-weight: 400;
+            margin-bottom: 18px;
+            opacity: 0.8;
+        }
+        .project-info p {
+            color: var(--text-muted);
+            line-height: 1.9;
+            margin-bottom: 16px;
+            font-size: 0.98rem;
+        }
+        .project-info .pill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 16px 0 24px;
+        }
+        .project-info .pill-list span {
+            font-size: 0.72rem;
+            font-weight: 400;
+            color: var(--text-muted);
+            background: rgba(201, 168, 76, 0.06);
+            border: 1px solid rgba(201, 168, 76, 0.08);
+            padding: 4px 14px;
+            border-radius: 20px;
+            letter-spacing: 0.3px;
+        }
+        .project-visual {
+            position: relative;
+            perspective: 1000px;
+        }
+        .project-card-3d {
+            background: linear-gradient(145deg, var(--charcoal), var(--dark-charcoal));
+            border-radius: var(--radius);
+            padding: 40px 32px;
+            border: 1px solid rgba(201, 168, 76, 0.06);
+            transition: all var(--transition);
+            transform-style: preserve-3d;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: var(--shadow-card);
+        }
+        .project-card-3d:hover {
+            border-color: rgba(201, 168, 76, 0.15);
+            transform: rotateX(2deg) rotateY(4deg) translateY(-6px);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+        }
+        .project-card-3d .icon-wrap {
+            font-size: 2.4rem;
+            color: var(--gold);
+            margin-bottom: 12px;
+        }
+        .project-card-3d h4 {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            color: var(--warm-white);
+            margin-bottom: 6px;
+        }
+        .project-card-3d p {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            line-height: 1.7;
+        }
+        .project-card-3d .converge-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 16px;
+        }
+        .project-card-3d .converge-grid span {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            background: rgba(201, 168, 76, 0.04);
+            padding: 6px 12px;
+            border-radius: 4px;
+            text-align: center;
+            border: 1px solid rgba(201, 168, 76, 0.04);
+        }
+
+        @media (max-width: 992px) {
+            .project-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .project-grid.reverse {
+                direction: ltr;
+            }
+            .project-card-3d {
+                min-height: auto;
+                padding: 30px 24px;
+            }
+        }
+
+        /* ===== RESEARCH ===== */
+        #research {
+            background: var(--black);
+            border-bottom: 1px solid rgba(201, 168, 76, 0.05);
+        }
+        .research-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 30px;
+        }
+        .research-pubs {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .pub-card {
+            background: rgba(26, 26, 26, 0.5);
+            border: 1px solid rgba(201, 168, 76, 0.06);
+            border-radius: var(--radius);
+            padding: 20px 24px;
+            transition: all var(--transition);
+        }
+        .pub-card:hover {
+            border-color: rgba(201, 168, 76, 0.15);
+            background: rgba(26, 26, 26, 0.8);
+            transform: translateX(4px);
+        }
+        .pub-card .pub-title {
+            font-weight: 600;
+            color: var(--warm-white);
+            font-size: 0.98rem;
+            margin-bottom: 2px;
+        }
+        .pub-card .pub-title a {
+            color: var(--warm-white);
+            transition: color var(--transition);
+        }
+        .pub-card .pub-title a:hover {
+            color: var(--gold);
+        }
+        .pub-card .pub-source {
+            font-size: 0.82rem;
+            color: var(--gold);
+            opacity: 0.7;
+        }
+        .pub-card .pub-year {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+        }
+        .pub-card .pub-badge {
+            display: inline-block;
+            font-size: 0.6rem;
+            font-weight: 600;
+            color: var(--gold);
+            background: rgba(201, 168, 76, 0.1);
+            padding: 2px 10px;
+            border-radius: 12px;
+            margin-top: 2px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        .pub-card.featured {
+            border-left: 3px solid var(--gold);
+        }
+        .research-topics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-content: start;
+        }
+        .topic-card {
+            background: rgba(26, 26, 26, 0.4);
+            border: 1px solid rgba(201, 168, 76, 0.06);
+            border-radius: 8px;
+            padding: 14px 22px;
+            transition: all var(--transition);
+            cursor: default;
+            flex: 0 0 auto;
+        }
+        .topic-card:hover {
+            border-color: rgba(201, 168, 76, 0.2);
+            background: rgba(201, 168, 76, 0.04);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        }
+        .topic-card .topic-name {
+            font-weight: 500;
+            color: var(--warm-white);
+            font-size: 0.9rem;
+        }
+        .topic-card .topic-desc {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 768px) {
+            .research-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        /* ===== EXPERIENCE / EDUCATION ===== */
+        #experience {
+            background: var(--dark-charcoal);
+            border-bottom: 1px solid rgba(201, 168, 76, 0.05);
+        }
+        .exp-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 30px;
+        }
+        .exp-card {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(201, 168, 76, 0.06);
+            border-radius: var(--radius);
+            padding: 24px 28px;
+            transition: all var(--transition);
+            cursor: default;
+        }
+        .exp-card:hover {
+            border-color: rgba(201, 168, 76, 0.12);
+            transform: translateY(-4px);
+            box-shadow: 0 16px 50px rgba(0, 0, 0, 0.3);
+        }
+        .exp-card .exp-role {
+            font-weight: 600;
+            color: var(--warm-white);
+            font-size: 1.05rem;
+        }
+        .exp-card .exp-org {
+            color: var(--gold);
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 4px;
+        }
+        .exp-card .exp-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-top: 8px;
+        }
+        .exp-card .exp-meta {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-top: 8px;
+            opacity: 0.5;
+        }
+
+        .edu-card {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(201, 168, 76, 0.06);
+            border-radius: var(--radius);
+            padding: 24px 28px;
+            transition: all var(--transition);
+            border-left: 3px solid var(--gold);
+        }
+        .edu-card:hover {
+            border-color: rgba(201, 168, 76, 0.15);
+            transform: translateX(4px);
+        }
+        .edu-card .edu-degree {
+            font-weight: 600;
+            color: var(--warm-white);
+            font-size: 1.05rem;
+        }
+        .edu-card .edu-school {
+            color: var(--gold);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        .edu-card .edu-meta {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-top: 4px;
+            opacity: 0.5;
+        }
+        .edu-card .edu-honor {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--gold);
+            border: 1px solid rgba(201, 168, 76, 0.15);
+            padding: 2px 12px;
+            border-radius: 20px;
+            margin-top: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .exp-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        /* ===== WRITING ===== */
+        #writing {
+            background: var(--black);
+            border-bottom: 1px solid rgba(201, 168, 76, 0.05);
+        }
+        .writing-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 30px;
+        }
+        .writing-card {
+            background: rgba(26, 26, 26, 0.4);
+            border: 1px solid rgba(201, 168, 76, 0.06);
+            border-radius: var(--radius);
+            padding: 28px 30px;
+            transition: all var(--transition);
+        }
+        .writing-card:hover {
+            border-color: rgba(201, 168, 76, 0.12);
+            transform: translateY(-4px);
+            box-shadow: 0 16px 50px rgba(0, 0, 0, 0.3);
+        }
+        .writing-card h4 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--warm-white);
+            margin-bottom: 2px;
+        }
+        .writing-card .writing-sub {
+            color: var(--gold);
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 12px;
+        }
+        .writing-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            .writing-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+        }
+
+        /* ===== PHILOSOPHY ===== */
+        #philosophy {
+            background: var(--dark-charcoal);
+            border-top: 1px solid rgba(201, 168, 76, 0.04);
+            border-bottom: 1px solid rgba(201, 168, 76, 0.04);
+            padding: 80px 0;
+            text-align: center;
+        }
+        .philosophy-quote {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4.5vw, 3.8rem);
+            font-weight: 700;
+            color: var(--warm-white);
+            line-height: 1.2;
+            max-width: 900px;
+            margin: 0 auto 20px;
+        }
+        .philosophy-quote .gold {
+            color: var(--gold);
+        }
+        .philosophy-text {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* ===== CLARITY SECTION ===== */
+        #clarity {
+            background: var(--black);
+            padding: 80px 0;
+            border-bottom: 1px solid rgba(201, 168, 76, 0.05);
+        }
+        .clarity-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .clarity-content .clarity-tag {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            opacity: 0.6;
+            margin-bottom: 8px;
+        }
+        .clarity-content h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2.2rem, 4vw, 3.6rem);
+            font-weight: 700;
+            color: var(--warm-white);
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+        .clarity-content h2 .gold {
+            color: var(--gold);
+        }
+        .clarity-content p {
+            color: var(--text-muted);
+            font-size: 1.02rem;
+            line-height: 1.9;
+            max-width: 520px;
+        }
+        .clarity-content .clarity-quote {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            color: var(--gold);
+            font-style: italic;
+            margin-top: 24px;
+            padding-left: 20px;
+            border-left: 3px solid var(--gold);
+        }
+        .clarity-content .clarity-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .clarity-content .clarity-tags span {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            background: rgba(201, 168, 76, 0.04);
+            padding: 4px 14px;
+            border-radius: 20px;
+            border: 1px solid rgba(201, 168, 76, 0.06);
+        }
+        .clarity-visual {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        .clarity-visual .clarity-card {
+            background: rgba(26, 26, 26, 0.4);
+            border: 1px solid rgba(201, 168, 76, 0.06);
+            border-radius: var(--radius);
+            padding: 24px 20px;
+            text-align: center;
+            transition: all var(--transition);
+        }
+        .clarity-visual .clarity-card:hover {
+            border-color: rgba(201, 168, 76, 0.12);
+            transform: translateY(-4px);
+        }
+        .clarity-visual .clarity-card .emoji {
+            font-size: 2rem;
+            margin-bottom: 6px;
+        }
+        .clarity-visual .clarity-card .label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .clarity-visual .clarity-card .value {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            color: var(--warm-white);
+            margin-top: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .clarity-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+            .clarity-content p {
+                max-width: 100%;
+                margin: 0 auto;
+            }
+            .clarity-content .clarity-quote {
+                text-align: left;
+            }
+            .clarity-content .clarity-tags {
+                justify-content: center;
+            }
+            .clarity-visual {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (max-width: 480px) {
+            .clarity-visual {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== IMPACT ===== */
+        #impact {
+            background: var(--black);
+            border-bottom: 1px solid rgba(201, 168, 76, 0.05);
+        }
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .impact-item {
+            text-align: center;
+            padding: 20px 12px;
+            background: rgba(26, 26, 26, 0.3);
+            border-radius: var(--radius);
+            border: 1px solid rgba(201, 168, 76, 0.04);
+            transition: all var(--transition);
+        }
+        .impact-item:hover {
+            border-color: rgba(201, 168, 76, 0.08);
+            transform: translateY(-4px);
+        }
+        .impact-item .number {
+            font-family: var(--font-display);
+            font-size: 2.6rem;
+            font-weight: 700;
+            color: var(--gold);
+            display: block;
+        }
+        .impact-item .label {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 2px;
+        }
+
+        /* ===== CONTACT ===== */
+        #contact {
+            background: var(--dark-charcoal);
+            border-bottom: 1px solid rgba(201, 168, 76, 0.05);
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-top: 30px;
+        }
+        .contact-info p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.9;
+            margin-bottom: 24px;
+        }
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 14px;
+            color: var(--warm-white);
+            font-size: 0.95rem;
+        }
+        .contact-detail .icon {
+            color: var(--gold);
+            font-size: 1.2rem;
+            width: 28px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+        .contact-detail a {
+            color: var(--text-muted);
+            transition: color var(--transition);
+        }
+        .contact-detail a:hover {
+            color: var(--gold);
+        }
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .contact-form input,
+        .contact-form textarea {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(201, 168, 76, 0.08);
+            border-radius: 6px;
+            padding: 14px 18px;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            color: var(--warm-white);
+            transition: all var(--transition);
+            outline: none;
+        }
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: rgba(201, 168, 76, 0.25);
+            background: rgba(0, 0, 0, 0.6);
+            box-shadow: 0 0 0 4px rgba(201, 168, 76, 0.03);
+        }
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: var(--text-muted);
+            opacity: 0.4;
+        }
+        .contact-form textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        .contact-form .btn {
+            align-self: flex-start;
+        }
+
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .contact-form .btn {
+                align-self: stretch;
+                justify-content: center;
+            }
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--black);
+            padding: 40px 0 28px;
+            border-top: 1px solid rgba(201, 168, 76, 0.04);
+        }
+        footer .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        footer .footer-name {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--warm-white);
+        }
+        footer .footer-tagline {
+            color: var(--text-muted);
+            font-size: 0.82rem;
+            letter-spacing: 1px;
+            margin-top: 2px;
+        }
+        footer .footer-gold {
+            width: 40px;
+            height: 2px;
+            background: var(--gold);
+            margin: 12px auto 14px;
+            opacity: 0.3;
+        }
+        footer .footer-social {
+            display: flex;
+            gap: 18px;
+            margin: 6px 0 12px;
+        }
+        footer .footer-social a {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            transition: color var(--transition);
+            letter-spacing: 1px;
+        }
+        footer .footer-social a:hover {
+            color: var(--gold);
+        }
+        footer .footer-copy {
+            color: var(--text-muted);
+            font-size: 0.72rem;
+            opacity: 0.4;
+            letter-spacing: 0.5px;
+        }
+
+        /* ===== REVEAL ANIMATIONS ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .reveal-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .reveal-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* ===== RESPONSIVE TWEAKS ===== */
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .hero-text h1 {
+                font-size: 2.4rem;
+            }
+            .project-card-3d .converge-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== ACCESSIBILITY ===== */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            .reveal,
+            .reveal-left,
+            .reveal-right {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+            .hero-ambient {
+                animation: none !important;
+            }
+            .project-card-3d:hover {
+                transform: none !important;
+            }
+            .timeline-item .content .desc-hidden {
+                max-height: 200px !important;
+                opacity: 1 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- GRAIN -->
+    <div id="grain"></div>
+
+    <!-- PROGRESS -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+        <div class="container">
+            <a href="#hero" class="nav-logo">E<span>.</span>E</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#journey">Journey</a></li>
+                <li><a href="#carewise">CareWise</a></li>
+                <li><a href="#academichelp">AcademicHelp</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#writing">Writing</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section id="hero">
+        <canvas id="hero-canvas"></canvas>
+        <div class="hero-ambient"></div>
+        <div class="container hero-content">
+            <div class="hero-grid">
+                <div class="hero-text">
+                    <div class="subhead">Psychologist · Researcher · Builder</div>
+                    <h1>Ebuka Ezeh |<br /><span class="gold">Omo Usen MJ</span></h1>
+                    <p class="tagline">
+                        Building evidence-based systems at the intersection of psychology,
+                        technology, research and human wellbeing across Africa.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#about" class="btn btn-primary">Explore My Work</a>
+                        <a href="#contact" class="btn btn-secondary">Let's Connect</a>
+                        <a href="#writing" class="btn btn-text">Read My Writing →</a>
+                    </div>
+                </div>
+                <div class="hero-portrait">
+                    <div class="hero-portrait-inner">
+                        <div class="portrait-placeholder">
+                            <div class="initials">E</div>
+                            <div class="sub">PSYCHOLOGIST · RESEARCHER · BUILDER</div>
+                        </div>
+                        <div class="portrait-glow"></div>
+                        <div class="portrait-border"></div>
+                        <div class="portrait-ring"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section id="about" class="section-padding">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text reveal">
+                    <div class="section-label">About</div>
+                    <h2 class="section-title">Who is <span class="gold">Chukwuebuka?</span></h2>
+                    <p>
+                        <strong>Chukwuebuka Ezeh</strong> is a Nigerian psychologist,
+                        researcher, entrepreneur and writer whose work is shaped by an interest
+                        in understanding people and building systems that improve their wellbeing
+                        and opportunities.
+                    </p>
+                    <p>
+                        He graduated with <strong>First Class Honours in Psychology</strong>
+                        from the <strong>University of Ibadan</strong> and is pursuing an
+                        <strong>MSc in Health Psychology</strong> at
+                        <strong>Obafemi Awolowo University</strong>.
+                    </p>
+                    <p>
+                        His work increasingly sits at the intersection of psychology, mental health,
+                        artificial intelligence, digital health, research and community development.
+                    </p>
+                    <div class="about-quote">
+                        “I do not simply want to understand problems. I want to build systems that help solve them.”
+                    </div>
+                    <div class="about-stat">
+                        <div class="about-stat-item">
+                            <span class="number">First Class</span>
+                            <span class="label">BSc Psychology</span>
+                        </div>
+                        <div class="about-stat-item">
+                            <span class="number">MSc</span>
+                            <span class="label">Health Psychology (in progress)</span>
+                        </div>
+                        <div class="about-stat-item">
+                            <span class="number">Nigeria</span>
+                            <span class="label">Building for Africa</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-text reveal" style="display:flex;flex-direction:column;justify-content:center;">
+                    <p style="font-size:1.02rem;color:var(--warm-white);font-weight:400;font-family:var(--font-display);line-height:1.6;">
+                        “I am interested in the quiet architecture of human behaviour —
+                        the systems, beliefs, and environments that shape how we think,
+                        heal, and grow. My work is a conversation between evidence and
+                        imagination, between the clinic and the community.”
+                    </p>
+                    <p style="margin-top:12px;color:var(--text-muted);font-size:0.9rem;">
+                        - Ebuka Ezeh | Omo Usen MJ
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== JOURNEY / TIMELINE ===== -->
+    <section id="journey" class="section-padding">
+        <div class="container">
+            <div class="reveal">
+                <div class="section-label">Journey</div>
+                <h2 class="section-title">The Evolution of <span class="gold">Work</span></h2>
+                <p class="section-desc">A timeline of the ideas, roles, and ventures that shape his practice.</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-line"><div class="fill" id="timelineFill"></div></div>
+
+                <div class="timeline-item reveal">
+                    <div class="content">
+                        <div class="year">Foundation</div>
+                        <h4>Psychology</h4>
+                        <p>Training in clinical and research psychology at the University of Ibadan.</p>
+                        <div class="desc-hidden">First Class Honours, with a deep focus on mental health, adolescent psychology, and culturally relevant interventions.</div>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <div class="content">
+                        <div class="year">2019–2023</div>
+                        <h4>Research</h4>
+                        <p>Mental health research, data management, and culturally informed interventions.</p>
+                        <div class="desc-hidden">Worked as Research Assistant at the University of Ibadan, contributing to studies on adolescent mental health and community wellbeing.</div>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <div class="content">
+                        <div class="year">2023</div>
+                        <h4>AcademicHelp.co</h4>
+                        <p>AI-powered academic and research support platform founded to democratise knowledge.</p>
+                        <div class="desc-hidden">Supporting students and researchers through consultation, data analysis, methodology, mentoring, and capacity building.</div>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <div class="content">
+                        <div class="year">2023–Present</div>
+                        <h4>Health & Clinical</h4>
+                        <p>Health Assistant at LiveWell Specialists Hospital, providing patient support and psychosocial care.</p>
+                        <div class="desc-hidden">Clinical documentation, care coordination, patient education, and psychosocial support in a hospital setting.</div>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <div class="content">
+                        <div class="year">2024</div>
+                        <h4>CareWise MH Hub</h4>
+                        <p>AI-powered mental wellness platform for African students, young professionals and communities.</p>
+                        <div class="desc-hidden">Founder &amp; CEO -leading strategy, customer research, partnerships, product planning, and multidisciplinary collaboration.</div>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <div class="content">
+                        <div class="year">2024–Present</div>
+                        <h4>AI & Digital Innovation</h4>
+                        <p>Exploring the intersection of artificial intelligence, behavioural science, and digital health.</p>
+                        <div class="desc-hidden">Research on AI-driven misinformation, psychological vulnerability, and democratic resilience in West Africa.</div>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <div class="content">
+                        <div class="year">2024–Present</div>
+                        <h4>Mental Health & Public Health Research</h4>
+                        <p>Pursuing an MSc in Health Psychology at Obafemi Awolowo University.</p>
+                        <div class="desc-hidden">Research focused on health psychology, behaviour change, and community mental health systems in African contexts.</div>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CAREWISE MH HUB ===== -->
+    <section id="carewise" class="project-section section-padding">
+        <div class="container">
+            <div class="project-grid">
+                <div class="project-info reveal">
+                    <div class="project-badge">Founder &amp; CEO</div>
+                    <h3>CareWise MH Hub</h3>
+                    <div class="project-sub">Building culturally relevant mental health systems for Africa.</div>
+                    <p>
+                        <strong>CareWise MH Hub</strong> is an emerging AI-powered mental wellness platform
+                        focused on improving access to culturally relevant mental health support for
+                        African students, young professionals and communities.
+                    </p>
+                    <p>
+                        Chukwuebuka leads strategy, customer research, partnerships, product planning,
+                        and multidisciplinary collaboration. The project is an evolving innovation
+                        that is a thoughtful effort to build systems that understand and serve African realities.
+                    </p>
+                    <div class="pill-list">
+                        <span>Psychology</span>
+                        <span>Mental Health</span>
+                        <span>Artificial Intelligence</span>
+                        <span>Behavioural Science</span>
+                        <span>Digital Health</span>
+                        <span>Cultural Relevance</span>
+                        <span>Human-Centred Design</span>
+                    </div>
+                    <a href="#contact" class="btn btn-primary">Explore CareWise</a>
+                </div>
+                <div class="project-visual reveal">
+                    <div class="project-card-3d">
+                        <div class="icon-wrap">🧠</div>
+                        <h4>Convergence</h4>
+                        <p>Where psychology, technology, research and community engagement meet.</p>
+                        <div class="converge-grid">
+                            <span>Psychology</span>
+                            <span>Technology</span>
+                            <span>Research</span>
+                            <span>Community</span>
+                            <span>AI</span>
+                            <span>Behaviour</span>
+                            <span>Culture</span>
+                            <span>Wellbeing</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ACADEMICHELP.CO ===== -->
+    <section id="academichelp" class="project-section section-padding">
+        <div class="container">
+            <div class="project-grid reverse">
+                <div class="project-info reveal">
+                    <div class="project-badge">Founder</div>
+                    <h3>AcademicHelp.co</h3>
+                    <div class="project-sub">Democratising access to research knowledge and academic capacity.</div>
+                    <p>
+                        <strong>AcademicHelp.co</strong> is an AI-powered academic and research support
+                        platform founded by Chukwuebuka to support students and researchers through
+                        research consultation, data analysis, research methodology, mentoring,
+                        academic capacity building, responsible AI use in research, and technology-enabled
+                        learning.
+                    </p>
+                    <p>
+                        The goal is not simply completing academic tasks but helping students and
+                        researchers become more capable and independent.
+                    </p>
+                    <div class="pill-list">
+                        <span>Research Consultation</span>
+                        <span>Data Analysis</span>
+                        <span>Methodology</span>
+                        <span>Mentoring</span>
+                        <span>AI in Research</span>
+                        <span>Capacity Building</span>
+                    </div>
+                    <a href="https://academichelp.co/" target="_blank" class="btn btn-primary">Visit AcademicHelp.co →</a>
+                </div>
+                <div class="project-visual reveal">
+                    <div class="project-card-3d">
+                        <div class="icon-wrap">📘</div>
+                        <h4>Empowerment</h4>
+                        <p>Helping students and researchers become more capable, independent, and confident in their academic work.</p>
+                        <div style="margin-top:16px;display:flex;flex-wrap:wrap;gap:6px;">
+                            <span style="font-size:0.7rem;color:var(--text-muted);background:rgba(201,168,76,0.04);padding:4px 12px;border-radius:4px;border:1px solid rgba(201,168,76,0.04);">Mentorship</span>
+                            <span style="font-size:0.7rem;color:var(--text-muted);background:rgba(201,168,76,0.04);padding:4px 12px;border-radius:4px;border:1px solid rgba(201,168,76,0.04);">AI Support</span>
+                            <span style="font-size:0.7rem;color:var(--text-muted);background:rgba(201,168,76,0.04);padding:4px 12px;border-radius:4px;border:1px solid rgba(201,168,76,0.04);">Research Skills</span>
+                            <span style="font-size:0.7rem;color:var(--text-muted);background:rgba(201,168,76,0.04);padding:4px 12px;border-radius:4px;border:1px solid rgba(201,168,76,0.04);">Data Analysis</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== RESEARCH ===== -->
+    <section id="research" class="section-padding">
+        <div class="container">
+            <div class="reveal">
+                <div class="section-label">Research</div>
+                <h2 class="section-title">Research &amp; <span class="gold">Evidence</span></h2>
+                <p class="section-desc">
+                    An emerging researcher interested in psychology, mental health, technology,
+                    behaviour and African communities.
+                </p>
+            </div>
+            <div class="research-grid">
+                <div class="research-pubs reveal">
+                    <h4 style="font-weight:600;color:var(--warm-white);margin-bottom:8px;font-size:1rem;">Selected Publications</h4>
+                    <div class="pub-card">
+                        <div class="pub-title">Bullying Behaviour Among In-School Adolescents in Ibadan, Nigeria</div>
+                        <div class="pub-source">Ezeh, C. (2024). <em>Nigerian Journal of Social Psychology</em>, 7(2).</div>
+                        <div class="pub-year">2024</div>
+                    </div>
+                    <div class="pub-card featured">
+                        <div class="pub-title">
+                            <a href="https://www.researchgate.net/publication/411870241_AI-Driven_Misinformation_Psychological_Vulnerability_and_Democratic_Resilience_in_West_African_Civic_Ecosystems" 
+                               target="_blank">
+                                AI-Driven Misinformation, Psychological Vulnerability, and Democratic Resilience in West African Civic Ecosystems
+                            </a>
+                        </div>
+                        <div class="pub-source">Ezeh, C. S. (2026). <em>ResearchGate</em></div>
+                        <div class="pub-year" style="display:flex;align-items:center;gap:8px;margin-top:4px;">
+                            <span>2026</span>
+                            <span class="pub-badge">Published</span>
+                        </div>
+                    </div>
+                    <p style="color:var(--text-muted);font-size:0.85rem;margin-top:12px;border-top:1px solid rgba(201,168,76,0.04);padding-top:14px;">
+                        Research interests span mental health, health psychology, adolescent psychology,
+                        AI &amp; human behaviour, digital mental health, misinformation, behavioural science,
+                        and African communities.
+                    </p>
+                </div>
+                <div class="research-topics reveal">
+                    <div class="topic-card"><div class="topic-name">Mental Health</div><div class="topic-desc">Culturally relevant systems</div></div>
+                    <div class="topic-card"><div class="topic-name">Health Psychology</div><div class="topic-desc">Behaviour &amp; wellbeing</div></div>
+                    <div class="topic-card"><div class="topic-name">Adolescent Psychology</div><div class="topic-desc">Youth mental health</div></div>
+                    <div class="topic-card"><div class="topic-name">AI &amp; Human Behaviour</div><div class="topic-desc">Technology &amp; cognition</div></div>
+                    <div class="topic-card"><div class="topic-name">Digital Mental Health</div><div class="topic-desc">Tech-enabled care</div></div>
+                    <div class="topic-card"><div class="topic-name">Misinformation</div><div class="topic-desc">Psychological vulnerability</div></div>
+                    <div class="topic-card"><div class="topic-name">Behavioural Science</div><div class="topic-desc">Evidence-based change</div></div>
+                    <div class="topic-card"><div class="topic-name">African Communities</div><div class="topic-desc">Context &amp; culture</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== EXPERIENCE & EDUCATION ===== -->
+    <section id="experience" class="section-padding">
+        <div class="container">
+            <div class="reveal">
+                <div class="section-label">Experience</div>
+                <h2 class="section-title">Professional <span class="gold">Journey</span></h2>
+                <p class="section-desc">Roles that have shaped his practice and perspective.</p>
+            </div>
+            <div class="exp-grid">
+                <div class="reveal">
+                    <h4 style="font-weight:600;color:var(--warm-white);margin-bottom:16px;font-size:1.1rem;">Work</h4>
+                    <div class="exp-card">
+                        <div class="exp-role">Research Assistant</div>
+                        <div class="exp-org">Department of Psychology, University of Ibadan</div>
+                        <div class="exp-desc">Mental health research, data management and analysis, culturally informed interventions, research reporting and mentoring.</div>
+                        <div class="exp-meta">2019–2023</div>
+                    </div>
+                    <div class="exp-card">
+                        <div class="exp-role">Health Assistant</div>
+                        <div class="exp-org">LiveWell Specialists Hospital</div>
+                        <div class="exp-desc">Patient support, psychosocial support, clinical documentation, care coordination and patient education.</div>
+                        <div class="exp-meta">2023–Present</div>
+                    </div>
+                    <div class="exp-card">
+                        <div class="exp-role">Operations &amp; General Supervisor</div>
+                        <div class="exp-org">Divine Environmental and Allied Services</div>
+                        <div class="exp-desc">Operations, logistics, service delivery, staff coordination and client relations.</div>
+                        <div class="exp-meta">2021–2023</div>
+                    </div>
+                </div>
+                <div class="reveal">
+                    <h4 style="font-weight:600;color:var(--warm-white);margin-bottom:16px;font-size:1.1rem;">Education</h4>
+                    <div class="edu-card">
+                        <div class="edu-degree">MSc Health Psychology</div>
+                        <div class="edu-school">Obafemi Awolowo University</div>
+                        <div class="edu-meta">In progress</div>
+                    </div>
+                    <div class="edu-card" style="border-left-color:var(--gold-light);">
+                        <div class="edu-degree">BSc Psychology</div>
+                        <div class="edu-school">University of Ibadan</div>
+                        <div class="edu-meta">2023</div>
+                        <div class="edu-honor">★ First Class Honours</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== WRITING ===== -->
+    <section id="writing" class="section-padding">
+        <div class="container">
+            <div class="reveal">
+                <div class="section-label">Writing</div>
+                <h2 class="section-title"><span class="gold">Illegal</span> Thought</h2>
+                <p class="section-desc" style="font-style:italic;color:var(--gold);opacity:0.6;">Think carefully. Question honestly.</p>
+                <p class="section-desc" style="margin-top:6px;">
+                    <em>Illegal Thought</em> explores psychology, artificial intelligence, faith,
+                    leadership, culture, mental health, technology and human behaviour through
+                    evidence, Scripture and lived experience.
+                </p>
+            </div>
+            <div class="writing-grid">
+                <div class="writing-card reveal">
+                    <h4>Illegal Thought</h4>
+                    <div class="writing-sub">Psychology · AI · Faith · Culture</div>
+                    <p>
+                        A collection of essays and reflections that examine the intersection of
+                        evidence, belief, and human experience. Chukwuebuka writes to make people think —
+                        about themselves, their communities, and the systems they inhabit.
+                    </p>
+                    <div style="margin-top:12px;">
+                        <a href="https://x.com/illegalthought_" target="_blank" class="btn btn-text" style="padding-left:0;">Follow on X →</a>
+                    </div>
+                </div>
+                <div class="writing-card reveal">
+                    <h4>A Trial Before Examination</h4>
+                    <div class="writing-sub">Personal Storytelling Series</div>
+                    <p>
+                        Drawn from lived experiences involving disappointment, money, relationships,
+                        faith, leadership, failure, rebuilding, ambition, discipline and purpose.
+                        A raw and honest exploration of what it means to grow.
+                    </p>
+                </div>
+            </div>
+            <div style="text-align:center;margin-top:32px;" class="reveal">
+                <a href="https://x.com/illegalthought_" target="_blank" class="btn btn-secondary">Read My Writing →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PHILOSOPHY ===== -->
+    <section id="philosophy">
+        <div class="container">
+            <div class="philosophy-quote reveal">
+                “I do not want to simply become successful.<br />I want to become <span class="gold">useful</span>.”
+            </div>
+            <div class="philosophy-text reveal">
+                Building things that create meaningful impact for people and communities -
+                that is the work that matters.
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CLARITY SECTION ===== -->
+    <section id="clarity">
+        <div class="container">
+            <div class="clarity-grid">
+                <div class="clarity-content reveal">
+                    <div class="clarity-tag">Clarity</div>
+                    <h2>Over <span class="gold">Noise</span>.<br />Not Perfect, <span class="gold">Just Real</span>.</h2>
+                    <p>
+                        Ideas. Lessons. Growth. This is the space where thought meets action —
+                        where psychology, faith, and the messy reality of being human collide
+                        into something useful.
+                    </p>
+                    <div class="clarity-quote">
+                        “The obstacle is the way.”
+                    </div>
+                    <div class="clarity-tags">
+                        <span>Essentialism</span>
+                        <span>Atomic Habits</span>
+                        <span>Write to Self</span>
+                        <span>Ontomorph</span>
+                    </div>
+                </div>
+                <div class="clarity-visual reveal">
+                    <div class="clarity-card">
+                        <div class="emoji">🧠</div>
+                        <div class="label">Mindset</div>
+                        <div class="value">Clarity</div>
+                    </div>
+                    <div class="clarity-card">
+                        <div class="emoji">📝</div>
+                        <div class="label">Practice</div>
+                        <div class="value">Discipline</div>
+                    </div>
+                    <div class="clarity-card">
+                        <div class="emoji">🔥</div>
+                        <div class="label">Growth</div>
+                        <div class="value">Resilience</div>
+                    </div>
+                    <div class="clarity-card">
+                        <div class="emoji">🌱</div>
+                        <div class="label">Impact</div>
+                        <div class="value">Service</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== IMPACT ===== -->
+    <section id="impact" class="section-padding">
+        <div class="container">
+            <div class="reveal" style="text-align:center;">
+                <div class="section-label">Impact</div>
+                <h2 class="section-title">Areas of <span class="gold">Contribution</span></h2>
+                <p class="section-desc" style="margin:0 auto;">A commitment to building evidence-based systems that serve African communities.</p>
+            </div>
+            <div class="impact-grid">
+                <div class="impact-item reveal">
+                    <span class="number">🔬</span>
+                    <span class="label">Research</span>
+                </div>
+                <div class="impact-item reveal">
+                    <span class="number">🧠</span>
+                    <span class="label">Mental Health</span>
+                </div>
+                <div class="impact-item reveal">
+                    <span class="number">📘</span>
+                    <span class="label">Education</span>
+                </div>
+                <div class="impact-item reveal">
+                    <span class="number">🤖</span>
+                    <span class="label">AI &amp; Innovation</span>
+                </div>
+                <div class="impact-item reveal">
+                    <span class="number">🌍</span>
+                    <span class="label">Community</span>
+                </div>
+                <div class="impact-item reveal">
+                    <span class="number">⚡</span>
+                    <span class="label">Human Development</span>
+                </div>
+            </div>
+            <p style="text-align:center;color:var(--text-muted);font-size:0.82rem;margin-top:24px;opacity:0.5;">
+                Quantifiable impact metrics are built over time. The work is ongoing.
+            </p>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="section-padding">
+        <div class="container">
+            <div class="reveal">
+                <div class="section-label">Contact</div>
+                <h2 class="section-title">Let's Build Something <span class="gold">Meaningful</span></h2>
+                <p class="section-desc">
+                    For research collaborations, speaking engagements, consulting, technology projects,
+                    mental health innovation, academic partnerships or meaningful conversations - get in touch.
+                </p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info reveal">
+                    <div class="contact-detail">
+                        <span class="icon">✉</span>
+                        <a href="mailto:chukwuebukasezeh@gmail.com">chukwuebukasezeh@gmail.com</a>
+                    </div>
+                    <div class="contact-detail">
+                        <span class="icon">📱</span>
+                        <span>+234 703 204 8014</span>
+                    </div>
+                    <div class="contact-detail">
+                        <span class="icon">in</span>
+                        <a href="https://www.linkedin.com/in/ambezeh/" target="_blank">linkedin.com/in/ambezeh</a>
+                    </div>
+                    <div class="contact-detail">
+                        <span class="icon">𝕏</span>
+                        <a href="https://x.com/illegalthought_" target="_blank">@illegalthought_</a>
+                    </div>
+                    <div class="contact-detail">
+                        <span class="icon">fb</span>
+                        <a href="https://www.facebook.com/ezebuka" target="_blank">facebook.com/ezebuka</a>
+                    </div>
+                    <p style="margin-top:16px;font-size:0.9rem;color:var(--text-muted);border-top:1px solid rgba(201,168,76,0.04);padding-top:16px;">
+                        <span style="color:var(--gold);opacity:0.6;">✧</span> Available for thoughtful collaborations and meaningful work.
+                    </p>
+                </div>
+                <form class="contact-form reveal" id="contactForm" action="#" method="POST">
+                    <input type="text" placeholder="Your Name" required aria-label="Your name" />
+                    <input type="email" placeholder="Your Email" required aria-label="Your email" />
+                    <input type="text" placeholder="Subject" aria-label="Subject" />
+                    <textarea placeholder="Tell me about your project or idea…" required aria-label="Message"></textarea>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <div class="footer-name">Ebuka Ezeh | Omo Usen MJ</div>
+            <div class="footer-tagline">Psychologist · Researcher · Builder</div>
+            <div class="footer-gold"></div>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/ambezeh/" target="_blank">LinkedIn</a>
+                <a href="https://x.com/illegalthought_" target="_blank">X</a>
+                <a href="https://www.facebook.com/ezebuka" target="_blank">Facebook</a>
+            </div>
+            <div class="footer-copy">&copy; 2026. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script>
+        // =============================================
+        // HERO PARTICLES (canvas)
+        // =============================================
+        (function heroParticles() {
+            const canvas = document.getElementById('hero-canvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            let w, h;
+            const particles = [];
+            const COUNT = 80;
+
+            function resize() {
+                const rect = canvas.parentElement.getBoundingClientRect();
+                w = canvas.width = rect.width;
+                h = canvas.height = rect.height;
+            }
+            window.addEventListener('resize', resize);
+            resize();
+
+            class Particle {
+                constructor() {
+                    this.reset();
+                }
+                reset() {
+                    this.x = Math.random() * w;
+                    this.y = Math.random() * h;
+                    this.vx = (Math.random() - 0.5) * 0.12;
+                    this.vy = (Math.random() - 0.5) * 0.12;
+                    this.r = Math.random() * 1.6 + 0.4;
+                    this.opacity = Math.random() * 0.35 + 0.05;
+                }
+                update() {
+                    this.x += this.vx;
+                    this.y += this.vy;
+                    if (this.x < 0 || this.x > w) { this.vx *= -1;
+                        this.x = Math.max(0, Math.min(w, this.x)); }
+                    if (this.y < 0 || this.y > h) { this.vy *= -1;
+                        this.y = Math.max(0, Math.min(h, this.y)); }
+                }
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(201, 168, 76, ${this.opacity})`;
+                    ctx.fill();
+                }
+            }
+
+            for (let i = 0; i < COUNT; i++) {
+                particles.push(new Particle());
+            }
+
+            function drawConnections() {
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        if (dist < 120) {
+                            const alpha = (1 - dist / 120) * 0.06;
+                            ctx.beginPath();
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.strokeStyle = `rgba(201, 168, 76, ${alpha})`;
+                            ctx.lineWidth = 0.6;
+                            ctx.stroke();
+                        }
+                    }
+                }
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, w, h);
+                particles.forEach(p => { p.update();
+                    p.draw(); });
+                drawConnections();
+                requestAnimationFrame(animate);
+            }
+            animate();
+        })();
+
+        // =============================================
+        // NAVIGATION
+        // =============================================
+        const navbar = document.getElementById('navbar');
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        const progressBar = document.getElementById('progressBar');
+
+        // Scroll effects
+        let lastScroll = 0;
+        window.addEventListener('scroll', function() {
+            const scrollY = window.scrollY;
+            // navbar
+            if (scrollY > 60) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            // progress
+            const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+            const percent = maxScroll > 0 ? (scrollY / maxScroll) * 100 : 0;
+            progressBar.style.width = percent + '%';
+        });
+
+        // Hamburger
+        hamburger.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navLinks.classList.toggle('open');
+        });
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function() {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('open');
+            });
+        });
+
+        // Active nav link
+        const sections = document.querySelectorAll('section[id]');
+        const navAnchors = navLinks.querySelectorAll('a');
+        window.addEventListener('scroll', function() {
+            let current = '';
+            sections.forEach(section => {
+                const top = section.offsetTop - 120;
+                if (window.scrollY >= top) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navAnchors.forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href') === '#' + current) {
+                    a.classList.add('active');
+                }
+            });
+        });
+
+        // =============================================
+        // SCROLL REVEAL (Intersection Observer)
+        // =============================================
+        const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+        revealEls.forEach(el => observer.observe(el));
+
+        // =============================================
+        // TIMELINE FILL
+        // =============================================
+        const timelineFill = document.getElementById('timelineFill');
+        const timelineObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const rect = entry.target.getBoundingClientRect();
+                    const total = document.querySelector('.timeline-line').getBoundingClientRect().height;
+                    const pct = Math.min(100, (rect.top / total) * 100);
+                    timelineFill.style.height = Math.min(100, pct + 12) + '%';
+                }
+            });
+        }, { threshold: 0.1 });
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        timelineItems.forEach(item => timelineObserver.observe(item));
+
+        // =============================================
+        // 3D TILT ON PROJECT CARDS
+        // =============================================
+        document.querySelectorAll('.project-card-3d').forEach(card => {
+            card.addEventListener('mousemove', function(e) {
+                const rect = this.getBoundingClientRect();
+                const x = (e.clientX - rect.left) / rect.width - 0.5;
+                const y = (e.clientY - rect.top) / rect.height - 0.5;
+                this.style.transform =
+                    `rotateX(${y * -4}deg) rotateY(${x * 6}deg) translateY(-6px)`;
+            });
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'rotateX(0deg) rotateY(0deg) translateY(0px)';
+            });
+        });
+
+        // =============================================
+        // CONTACT FORM
+        // =============================================
+        document.getElementById('contactForm')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('.btn');
+            const original = btn.textContent;
+            btn.textContent = 'Sending…';
+            btn.disabled = true;
+            setTimeout(() => {
+                btn.textContent = '✓ Sent!';
+                setTimeout(() => {
+                    btn.textContent = original;
+                    btn.disabled = false;
+                    this.reset();
+                }, 1800);
+            }, 1200);
+        });
+
+        // =============================================
+        // SMOOTH SCROLL FOR NAV
+        // =============================================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    const top = target.offsetTop - 80;
+                    window.scrollTo({ top, behavior: 'smooth' });
+                }
+            });
+        });
+
+        console.log('✦ Ebuka Ezeh | Omo Usen MJ - Psychologist · Researcher · Builder ✦');
+    </script>
+</body>
+</html>
