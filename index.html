@@ -532,10 +532,15 @@
             border-bottom: 1px solid rgba(201, 168, 76, 0.05);
         }
         .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: stretch;
+}
+.about-grid .about-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
         }
         .about-text p {
             color: var(--text-muted);
